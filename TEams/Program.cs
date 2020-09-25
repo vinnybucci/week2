@@ -24,8 +24,8 @@ namespace TEams
 
             // create employees
             CreateEmployees();
-            CreateEmployees(002, "Angie", "Smith", "asmith@teams.com", 60000, departments[2].Name, "08/21/2020");
-            CreateEmployees(003, "Margaret", "Thompson", "mthompson@teams.com", 60000, departments[0].Name, "08/21/2020");
+            CreateEmployees(002, "Angie", "Smith", "asmith@teams.com", 60000, departments[2], "08/21/2020");
+            CreateEmployees(003, "Margaret", "Thompson", "mthompson@teams.com", 60000, departments[0], "08/21/2020");
             employees[0].EmployeeId = 001;
             employees[0].FirstName = "Dean";
             employees[0].LastName = "Johnson";
@@ -44,7 +44,7 @@ namespace TEams
             CreateTeamsProject("TEams", "Project Management Software", "10/10/2020", "11/10/2020");
 
             // create the Marketing Landing Page Project
-            CreateLandingPageProject();
+            CreateLandingPageProject("Marketing Landing Page", "Lead Capture Landing Page for Marketing", "10/10/2020", "10/17/2020");
 
             // print each project name and the total number of employees on the project
             PrintProjectsReport();
@@ -104,13 +104,16 @@ namespace TEams
          */
         private static void CreateTeamsProject(string name, string description, string startDate, string dueDate)
         {
-            foreach(Employee employee in departments)
+            for(int i = 0; i < employees.Count; i++)
+            {
+                
+            }
         }
 
         /**
          * Create the 'Marketing Landing Page' project.
          */
-        private static void CreateLandingPageProject()
+        private static void CreateLandingPageProject(string name, string description, string startDate, string dueDate)
         {
 
         }
