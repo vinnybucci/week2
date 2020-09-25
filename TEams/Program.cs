@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using TEams.Classes;
 
 namespace TEams
 {
     class Program
     {
+        public static List<Department> departments = new List<Department>();
+
         static void Main(string[] args)
         {
+            
             // create some departments
             CreateDepartments();
-
+            {
+            }
             // print each department by name
             PrintDepartments();
 
@@ -37,7 +43,6 @@ namespace TEams
          */
         private static void CreateDepartments()
         {
-
         }
 
         /**
@@ -46,7 +51,7 @@ namespace TEams
         private static void PrintDepartments()
         {
             Console.WriteLine("------------- DEPARTMENTS ------------------------------");
-
+            
         }
 
         /**
