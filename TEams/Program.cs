@@ -10,6 +10,7 @@ namespace TEams
         public static List<Department> departments = new List<Department>();
         public static List<Employee> employees = new List<Employee>();
         public static Dictionary<string, Project> projects = new Dictionary<string, Project>();
+        
 
         static void Main(string[] args)
         {
@@ -94,7 +95,7 @@ namespace TEams
             Console.WriteLine("\n------------- EMPLOYEES ------------------------------");
             foreach(Employee employee in employees)
             {
-                Console.WriteLine($"{employee.FullName} ({employee.Salary}) {employee.Department}");
+                Console.WriteLine($"{employee.FullName} ({employee.Salary}) {employee.Department.Name}");
             }
 
         }
@@ -104,10 +105,16 @@ namespace TEams
          */
         private static void CreateTeamsProject(string name, string description, string startDate, string dueDate)
         {
+            Project project = new Project(name, description, startDate, dueDate);
             for(int i = 0; i < employees.Count; i++)
             {
-                
+                if(employees[i].Department.DepartmentId == 003)
+                {
+                    project.TeamMembers.Add(employees[i]);
+                }
             }
+            projects.Add(name, project);
+            
         }
 
         /**
@@ -115,7 +122,16 @@ namespace TEams
          */
         private static void CreateLandingPageProject(string name, string description, string startDate, string dueDate)
         {
-
+            Project project = new Project(name, description, startDate, dueDate);
+            for(int i = 0; i < employees.Count; i++)
+            {
+                if(employees[i].Department.DepartmentId == 001)
+                {
+                    project.TeamMembers.Add(employees[i]);
+                }
+               
+            }
+            projects.Add(name, project);
         }
 
         /**
@@ -124,6 +140,11 @@ namespace TEams
         private static void PrintProjectsReport()
         {
             Console.WriteLine("\n------------- PROJECTS ------------------------------");
+            foreach(KeyValuePair <string,Project> keyValuePair in projects)
+            {
+                Console.WriteLine($"{keyValuePair.Key}: {keyValuePair.Value.TeamMembers.Count}");
+            }
+            
 
         }
     }
